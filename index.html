@@ -3,125 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لعبة الرعب</title>
+    <title>متجر الإلكتروني</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- شاشة البداية -->
-    <div id="start-screen" class="screen">
-        <div class="menu-content">
-            <h1>لعبة التريس</h1>
-            <h2>المصمم:- Ghazwan-MG</h2>
-            <h3>بدعم:-Ray & ahmed_aj69</h3>
-            <div class="menu-section" id="name-screen">
-                <h5>أدخل اسمك</h5>
-                <input type="text" id="player-name" placeholder="اسم اللاعب">
-                <button id="name-submit">دخول</button>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://cdn.discordapp.com/attachments/1218265466573950989/1325221421504401418/101.png?ex=677b0020&is=6779aea0&hm=2881902e38afea521172f489de46212e967f709e089bc2db8666e3595570945b&" alt="شعار المتجر">
             </div>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="products.html">المنتجات</a></li>
+                <li><a href="support.html">الدعم</a></li>
+            </ul>
+        </nav>
+    </header>
 
-            <div class="menu-section hidden" id="room-screen">
-                <div class="room-options">
-                    <div class="create-room">
-                        <h6>إنشاء غرفة</h6>
-                        <input type="text" id="new-room-name" placeholder="اسم الغرفة">
-                        <select id="max-players">
-                            <option value="2">2 لاعبين</option>
-                            <option value="3">3 لاعبين</option>
-                            <option value="4">4 لاعبين</option>
-                        </select>
-                        <select id="difficulty">
-                            <option value="easy">سهل</option>
-                            <option value="medium">متوسط</option>
-                            <option value="hard">صعب</option>
-                        </select>
-                        <button id="create-room-btn">إنشاء</button>
-                    </div>
+    <main>
+        <section class="hero">
+            <h1>مرحباً بكم في Shop MG </h1>
+            <p>اكتشف أفضل المنتجات بأسعار مميزة</p>
+            <p>🛠️يمكنك طلب ملفات وسكربتات حسب طلبك عبر صفحة الدعم📢</p>
+        </section>
 
-                    <div class="join-room">
-                        <h7>انضمام لغرفة</h7>
-                        <div class="rooms-list" id="rooms-list">
-                            <!-- ستتم إضافة الغرف هنا -->
-                        </div>
-                        <input type="text" id="room-code" placeholder="أو أدخل رمز الغرفة">
-                        <button id="join-room-btn">انضمام</button>
-                    </div>
+        <section class="featured-products">
+            <h2>سكربتات FiveM</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8EJLjOu8TAbYP9caGJBOZgrfm89yEZZUqL0XG0C5fPEq3C-BlndG7ZzCmOYXo1vI-Asc&usqp=CAU" alt="منتج 1">
+                    <h3>ملفات وظائف</h3>
+                    <p>120 دولار</p>
+                    <button>أضف إلى السلة</button>
                 </div>
-            </div>
-
-            <div class="menu-section hidden" id="waiting-screen">
-                <h2>انتظار اللاعبين</h2>
-                <div class="room-info">
-                    <p>رمز الغرفة: <span id="room-code-display"></span></p>
-                    <p>اللاعبين: <span id="connected-players"></span></p>
+                <div class="product-card">
+                    <img src="data:image/jpeg;base64,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" alt="منتج 2">
+                    <h3>ملفات رسبكت </h3>
+                    <p>560 دولار</p>
+                    <button>أضف إلى السلة</button>
                 </div>
-                <div id="waiting-players-list">
-                    <!-- ستتم إضافة اللاعبين هنا -->
-                </div>
-                <div class="waiting-options">
-                    <button id="start-game-btn">بدء اللعبة</button>
-                    <button id="leave-room-btn">مغادرة</button>
+                <div class="product-card">
+                    <img src="https://i.ytimg.com/vi/uQjp5e0-jp4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBsqVCynRqCbsCKtJ7L2wIrlz3GAw" alt="منتج 3">
+                    <h3>سكربتات حقيبة ومنيو ووظائف</h3>
+                    <p>350 دولار</p>
+                    <button>أضف إلى السلة</button>
                 </div>
             </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>جميع الحقوق محفوظة © Sohp MG 2025</p>
         </div>
-    </div>
-
-    <!-- شاشة اللعب -->
-    <div id="game-screen" class="screen hidden">
-        <canvas id="gameCanvas"></canvas>
-        <div class="hud">
-            <div class="health-bar">
-                <div class="health-fill"></div>
-                <span class="health-text">100</span>
-            </div>
-            <div class="sanity-bar">
-                <div class="sanity-fill"></div>
-                <span class="sanity-text">100</span>
-            </div>
-            <div class="noise-meter">
-                <div class="noise-fill"></div>
-                <span class="noise-text">0</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- شاشة الموت -->
-    <div id="death-screen" class="screen hidden">
-        <div class="death-content">
-            <div class="monster-message">
-                <div class="monster-avatar"></div>
-                <div class="message-bubble">
-                    <p id="death-message" class="typing-effect"></p>
-                    <div class="monster-name" id="killer-name"></div>
-                </div>
-            </div>
-            <div class="death-stats">
-                <h3>إحصائيات موتك</h3>
-                <p>وقت البقاء: <span id="survival-time">0:00</span></p>
-                <p>الوحوش التي قتلتها: <span id="monsters-killed">0</span></p>
-            </div>
-            <div class="death-options">
-                <button id="spectate-btn">مشاهدة اللعب</button>
-                <button id="return-lobby-btn">العودة للقائمة</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- شاشة الفوز -->
-    <div id="win-screen" class="screen hidden">
-        <div class="win-content">
-            <h2>مبروك! لقد نجوت!</h2>
-            <div class="win-stats">
-                <!-- ستتم إضافة الإحصائيات هنا -->
-            </div>
-            <button id="play-again-btn">العب مرة أخرى</button>
-        </div>
-    </div>
-
-    <!-- رسائل النظام -->
-    <div id="system-messages"></div>
-
-    <!-- تحميل المكتبات والسكربتات -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="game.js"></script>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
